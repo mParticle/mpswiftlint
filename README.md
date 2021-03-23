@@ -33,14 +33,14 @@ Download your data plan from the mParticle platform and save it to a file in you
 
 - The example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
 
-- We also strongly recommend that you include the `linting` section below (customizing the values of the `included` and `excluded` keys as appropriate for your project), in order to limit the number of files that get processed by the linter to those that contain your mParticle implementation, otherwise it can hang due to trying to parse a large number of swift source files.
+- We also strongly recommend that you include the `lintingConfig` section below (customizing the values of the `included` and `excluded` keys as appropriate for your project), in order to limit the number of files that get processed by the linter to those that contain your mParticle implementation, otherwise it can hang due to trying to parse a large number of swift source files.
 
 ```js
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
     },
-    "linting": {
+    "lintingConfig": {
         "included": [
             "MyViewController"
         ],
