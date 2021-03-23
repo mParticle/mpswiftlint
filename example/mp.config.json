@@ -1,5 +1,13 @@
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
+    },
+    "lintingConfig": {
+        "included": [
+            "GenericTester"
+        ],
+        "excluded": [
+            "ContentView.swift"
+        ]
     }
 }

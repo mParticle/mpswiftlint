@@ -15,8 +15,10 @@ The linter integrates with Xcode and provides feedback that pinpoints exactly wh
 
 First, install [node][1] if you don't have it, then install the mParticle command line interface, which is used internally by the linter.
 
+**Note:** Currently, linting requires that you to use version 1.0.3 of the mParticle CLI. If you have a later version, please uninstall the cli and reinstall version 1.0.3.
+
 ```sh
-sudo npm install -g @mparticle/cli
+sudo npm install -g @mparticle/cli@1.0.3
 ```
 
 #### 2. Install the linter
@@ -25,16 +27,26 @@ Download and install the latest `pkg` file from this repository's [releases][2] 
 
 #### 3. Specify your Data Plan
 
-Next, download your data plan from the mParticle platform and save it to a file in your source repository. 
+Download your data plan from the mParticle platform and save it to a file in your source repository. 
 
-You will also need to create a file `mp.config.json` in your repository root to tell the linter where to find the data plan file:
+- Create a file `mp.config.json` in your repository root to tell the linter where to find the data plan file.
 
-> Note: the example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
+- The example below assumes you saved the downloaded file as `plan.json` in the root of your repository. If you used a different path or filename, adjust the `dataPlanVersion` field accordingly.
+
+- We also strongly recommend that you include the `linting` section below (customizing the values of the `included` and `excluded` keys as appropriate for your project), in order to limit the number of files that get processed by the linter to those that contain your mParticle implementation, otherwise it can hang due to trying to parse a large number of swift source files.
 
 ```js
 {
     "planningConfig": {
         "dataPlanVersionFile": "./plan.json"
+    },
+    "linting": {
+        "included": [
+            "MyViewController"
+        ],
+        "excluded": [
+            "ContentView.swift"
+        ]
     }
 }
 ```
