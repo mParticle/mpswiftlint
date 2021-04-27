@@ -15,8 +15,6 @@ The linter integrates with Xcode and provides feedback that pinpoints exactly wh
 
 First, install [node][1] if you don't have it, then install the mParticle command line interface, which is used internally by the linter.
 
-**Note:** Currently, linting requires that you to use version 1.0.3 of the mParticle CLI. If you have a later version, please uninstall the cli and reinstall version 1.0.3.
-
 ```sh
 sudo npm install -g @mparticle/cli@1.0.7
 ```
